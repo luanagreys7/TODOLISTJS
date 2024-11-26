@@ -1,0 +1,206 @@
+.container{
+    align-content: center;
+    margin-top: 0%;
+    margin-bottom: 80%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.addtask{
+    background-color: darkorange;
+    padding: 12px;
+    margin-top: 10px;
+    border: 0;
+    margin-left: 5px;
+    padding-bottom: 9px;
+    width: 40px;
+    height: 40px;
+}
+li{
+    border-style: solid;
+    border-top: 0;
+    border-bottom: 0;
+    border-width: 1px;
+    display:flex;
+    border-color:lightgray;
+    padding-left: 30px;
+    padding: 10px;
+}
+li:first-child{
+    border-top: 1px;
+}
+li:last-child{
+    border-bottom: 1px;
+}
+li:nth-child(odd){
+    background-color:lightgray;
+}
+li:nth-child(even){
+    background-color:whitesmoke;
+}
+#newtask{
+    padding-right: 345px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-width: 2px;
+    border-color:black;
+    border-radius: 18px;
+    padding-left: 10px;
+}
+.esquerda{
+    padding-left: 40px;
+}
+label{
+    padding-left: 2px;
+}
+
+#banner {
+    width: 1503px;
+    height: 150px;
+    border-radius: 18px;
+    margin-bottom: 15px;
+    background-image: url(/imagens/seja_bem_vindo.png);
+}
+#search-input{
+    border-radius: 18px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+    padding: 10px;
+    width: 650px;
+    align-content: center;
+    margin-right: 4px;
+}
+button{
+    padding-top: 5px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+}
+.text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font: bold;
+    color: rgb(52, 23, 11);
+}
+.red {
+    padding-top: 5px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+    cursor: pointer;  
+    transition: background-color 0.3s;
+    height: 40px;
+    width: 40px;
+    padding-left: 4px;
+}
+.red:hover{
+    background-color: red;
+}
+.finish-todo{
+    padding-top: 5px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+    cursor: pointer;  
+    transition: background-color 0.3s;
+
+}
+.finish-todo:hover{
+    background-color: rgb(76, 135, 76);
+}
+.edit-todo{
+    padding-top: 5px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+    cursor: pointer;  
+    transition: background-color 0.3s;
+}
+.edit-todo:hover{
+    background-color: rgb(241, 118, 10);
+}
+.remove-todo{
+    padding-top: 5px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+    cursor: pointer;  
+    transition: background-color 0.3s;
+}
+.remove-todo:hover{
+    background-color: red;
+}
+.see-description{
+    padding-top: 5px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+    cursor: pointer;  
+    transition: background-color 0.3s;
+}
+.see-description:hover{
+    background-color: rgb(239, 201, 10);
+}
+.d-check{
+    padding-top: 5px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+    cursor: pointer;  
+    transition: background-color 0.3s;
+}
+.d-check:hover{
+    background-color: rgb(76, 135, 76) ;
+}
+h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font: bold;
+    color: rgb(52, 23, 11);
+}
+.hide {
+    display: none;
+}
+#filter-select{
+    border-radius: 18px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 4px;
+}
+#toolbar{
+    display: flex;
+}
+#cancel-edit-btn{
+    padding-top: 5px;
+    padding-bottom: 3px;
+    border-radius: 8px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+    cursor: pointer;  
+    transition: background-color 0.3s;
+    padding-left: 4px;
+}
+#cancel-edit-btn:hover{
+    background-color: red;
+}
+input#date {    
+    border-radius: 7px;
+    padding: 5px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+}
+input#description {
+    border-radius: 7px;
+    padding: 5px;
+    background-color: rgb(234, 228, 221);
+    border: 2px solid transparent;
+}
+.fa-eye, .fa-trash, .fa-pen, .fa-check{
+    pointer-events: none;
+}

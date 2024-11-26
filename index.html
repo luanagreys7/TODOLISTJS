@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Scaling--> 
+    <link rel="stylesheet" href="style.css"> <!--CSS-->
+    <link rel="shortcut icon" type="image/x-icon" href="./imagens/icon.folha.ico"> <!--Icon da pagina-->
+    <script src="main.js" defer></script> <!--JS. Defer: arquivos carregam depois do html evitando erros-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>To Do List</title>
+</head>
+<body>
+    <div id="banner"></div>
+    <!--incio container-->
+    <div class="container">
+
+        <!--INICIO Toolbar (FILTRO E SEARCH)-->
+        <div id="toolbar">
+
+            <!--INICIO Search-->
+            <div id="search">
+                <form>
+                    <input type="text" id="search-input" placeholder="Pesquisar...">
+                </form>
+            </div>
+            <!--FIM Search-->
+            <!--INICIO FILTRO-->
+            <div id="filter">
+                <select id="filter-select">
+                    <option value="" disabled selected>Filtrar por...</option>
+                    <option value="all">Todas</option>
+                    <option value="done">Concluídas</option>
+                    <option value="to-do">Não feitas</option>
+                </select>
+            </div>
+            <!--FIM FILTRO-->
+            <form>
+                <button id="erase-button" class="red">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+            </form>
+            
+
+        </div>
+        <!--FIM Toolbar(FILTRO E SEARCH)-->
+
+        <br>
+
+        <!--INICIO ADD TAREFA-->
+        <form id="todo-form">
+            <h2 class="text">Adicionar tarefa</h2>
+            <div class="esquerda">
+                <!--Input field-->
+                <input type="text" name="newtask" id="newtask" placeholder="Título"> <!--campo para inserir título-->
+                <br>
+                <!--calendário-->
+                <label for="date">Prazo:</label>
+                <input type="date" id="date"> 
+                <!--descrição-->
+                <input type="text" id="description" placeholder="Descrição"> 
+                <!--Botão add-->
+                <button class="addtask" type="submit">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <br>
+            </div>
+        </form>
+        <!--FIM ADD TAREFA-->
+
+        <!--INICIO EDIT TAREFA-->
+        <form id="edit-form" class="hide">
+            <p class="text"><b> Edite a sua tarefa: </b></p>
+            <div class="form-control">
+                <!--Campo input para editar tarefas-->
+                <input type="text" id="edit-input">
+                <!--Botão para confimar edição-->
+                <button type="submit" class="d-check">
+                    <i class="fa-solid fa-check-double"></i>
+                </button> 
+                <!--Botão para cancelar-->
+                <button id="cancel-edit-btn" type="button">Cancelar</button>
+            </div>
+        </form>
+        <!--FIM EDIT TAREFA-->
+
+        <!--INICIO Lista de Tarefas-->
+        <div id="todo-list">
+
+        
+
+        </div>
+        <!--FIM Lista de Tarefas-->
+
+    </div>
+    <!--FIM container-->
+</body>
+</html>
