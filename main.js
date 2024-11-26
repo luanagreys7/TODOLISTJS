@@ -1,4 +1,3 @@
-// Seleção de elementos
 const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#newtask");
 const todoList = document.querySelector("#todo-list");
@@ -25,9 +24,6 @@ function formatDate(dateString) {
 
 // Função para criar um contador de tempo (countdown)
 function createCountdown(dateString, element) {
-    if (!dateString) {
-        return ``
-    }
     const deadline = new Date(dateString);
     deadline.setHours(23, 59, 59, 999);
 
@@ -64,6 +60,8 @@ function addTodoTask(title, description, date) {
     todoDiv.innerHTML = `
         <h3>${title}</h3>
         <p>${formatDate(date)} - <span class="countdown"></span></p>
+        <p class="description">${description}</p>
+        <button class="see-description">
             <i class="fa-regular fa-eye"></i>
         </button>
         <button class="finish-todo">
@@ -174,7 +172,7 @@ todoForm.addEventListener('submit', (e) => {
         addTodoTask(title, description, date);
         todoForm.reset(); 
     } else {
-        alert('Por favor, preencha todo o campo obrigatório (Título).');
+        alert('Por favor, preencha todos o campo obrigatório (Título).');
     }
 });
 
