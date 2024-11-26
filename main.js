@@ -46,7 +46,7 @@ function createCountdown(dateString, element) {
     }
 
     updateCountdown(); 
-    const interval = setInterval(updateCountdown, 1000);
+    element.countdownInterval = setInterval(updateCountdown, 1000);
 }
 
 // Função para adicionar uma nova tarefa
@@ -60,7 +60,6 @@ function addTodoTask(title, description, date) {
     todoDiv.innerHTML = `
         <h3>${title}</h3>
         <p>${formatDate(date)} - <span class="countdown"></span></p>
-        <p class="description">${description}</p>
         <button class="see-description">
             <i class="fa-regular fa-eye"></i>
         </button>
@@ -81,12 +80,12 @@ function addTodoTask(title, description, date) {
     });
 
     todoDiv.querySelector('.finish-todo').addEventListener('click', () => {
-        todoDiv.classList.toggle('done');
+        todoDiv.classList.add('done');
+        // Para o countdown se a tarefa estiver concluída
         if (todoDiv.classList.contains('done')) {
-            clearInterval(interval);
-            countdownSpan.textContent = 'Concluído';
+            clearInterval(todoDiv.countdownInterval);
+            todoDiv.querySelector('.countdown').textContent = 'Concluído';
         } 
-        saveTasks();
     });
 
     todoDiv.querySelector('.edit-todo').addEventListener('click', () => {
@@ -97,32 +96,11 @@ function addTodoTask(title, description, date) {
 
     todoDiv.querySelector('.remove-todo').addEventListener('click', () => {
         todoDiv.remove();
-        saveTasks();
     });
 
     // Adiciona a tarefa à lista e inicia o countdown
     todoList.appendChild(todoDiv);
     createCountdown(date, todoDiv.querySelector('.countdown'));
-    saveTasks(); // Atualiza o localStorage
-}
-
-// Função para salvar tarefas no localStorage
-function saveTasks() {
-    let tasks = []; 
-    todoList.querySelectorAll('.todo').forEach((todo) => {
-        const todoTitle = todo.querySelector('h3').innerText;
-        const deadline = todo.querySelector('p').innerText.split(' - ')[0].replace('Prazo: ', '');
-        const description = todo.querySelector('.description').innerText;
-        tasks.push({ text: todoTitle, description: description, deadline: deadline });
-    });
-
-    localStorage.setItem('tasks', JSON.stringify(tasks)); 
-}
-
-// Função para carregar as tarefas do localStorage
-function loadTasks() {
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    tasks.forEach(task => addTodoTask(task.text, task.description, task.deadline));
 }
 
 // Função para filtrar as tarefas
@@ -156,7 +134,6 @@ editForm.addEventListener('submit', (e) => {
 
     editTodoId = null;
     editForm.style.display = 'none';
-    saveTasks(); // Atualiza o localStorage após edição
 });
 
 // Cancelar edição
@@ -194,5 +171,4 @@ searchInput.addEventListener('input', () => {
 // Filtrar tarefas por estado
 filterSelect.addEventListener('change', filterTodos);
 
-// Carregar as tarefas do localStorage ao iniciar a página
-loadTasks();
+
