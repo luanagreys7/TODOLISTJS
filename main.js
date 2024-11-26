@@ -138,15 +138,25 @@ function filterTodos() {
     });
 }
 
-// Função para editar a tarefa
+//editar
 editForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const updatedTitle = editInput.value.trim();
+    const updatedDate = taskDateInput.value.trim();
+    const updatedDescription = descriptionInput.value.trim();
+
     const todos = document.querySelectorAll('.todo');
 
     todos.forEach(todo => {
         if (todo.querySelector('h3').textContent === editTodoId) {
-            todo.querySelector('h3').textContent = updatedTitle;
+            todo.querySelector('h3').textContent = updatedTitle; // Atualiza o título
+            todo.querySelector('p').innerHTML = `
+                ${formatDate(updatedDate)} - <span class="countdown"></span>
+            `;
+            todo.querySelector('.see-description').addEventListener('click', () => {
+                alert(updatedDescription);
+            });
+            createCountdown(updatedDate, todo.querySelector('.countdown')); // Atualiza o countdown
         }
     });
 
