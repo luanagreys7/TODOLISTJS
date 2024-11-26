@@ -12,7 +12,7 @@ const descriptionInput = document.getElementById('description');
 let editTodoId = null; // Para controlar a edição das tarefas
 let oldInputValue; // Variável para armazenar o valor original ao editar uma tarefa
 
-// Função para formatar a data corretamente
+// Função para data
 function formatDate(dateString) {
     if (!dateString) return 'Data não definida';
     const date = new Date(dateString);
@@ -22,7 +22,7 @@ function formatDate(dateString) {
     }/${date.getFullYear()}`;
 }
 
-// Função para criar um contador de tempo (countdown)
+// Função para o timer
 function createCountdown(dateString, element) {
     const deadline = new Date(dateString);
     deadline.setHours(23, 59, 59, 999);
@@ -81,11 +81,6 @@ function addTodoTask(title, description, date) {
 
     todoDiv.querySelector('.finish-todo').addEventListener('click', () => {
         todoDiv.classList.add('done');
-        // Para o countdown se a tarefa estiver concluída
-        if (todoDiv.classList.contains('done')) {
-            clearInterval(todoDiv.countdownInterval);
-            todoDiv.querySelector('.countdown').textContent = 'Concluído';
-        } 
     });
 
     todoDiv.querySelector('.edit-todo').addEventListener('click', () => {
@@ -170,5 +165,3 @@ searchInput.addEventListener('input', () => {
 
 // Filtrar tarefas por estado
 filterSelect.addEventListener('change', filterTodos);
-
-
